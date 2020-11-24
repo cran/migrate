@@ -1,0 +1,77 @@
+---
+title: "migrate"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{migrate}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+# Setup Rmd options
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Using `migrate`
+
+This package is intended to serve as a set of tools to help convert credit risk data at two time points into traditional credit state migration (aka, "transition") matrices. At a higher level, `migrate` is intended to help an analyst understand how risk moved in their credit portfolio over a time interval.
+
+## Background
+
+One of the more difficult aspects of making a credit state migration matrix in R (or Python, for that matter) is the fact that the output doesn't satisfy the structure of a traditional data frame object. Rather, the output needs to be a *matrix*, which is a data structure that R does support. In the past, there has been difficulty converting a matrix to something more visual-friendly. More recently, however, tools like the [kableExtra](https://cran.r-project.org/package=kableExtra) and [gt](https://cran.r-project.org/package=gt) packages allow us to present visually appealing output that extends the structure of a data frame. Using the matrix-style output of `migrate`'s functions with a visual formatting package such as the two mentioned above will hopefully help analysts streamline the presentation of their credit portfolio's state migration matrices to an audience.
+
+## Getting Started
+
+If you haven't done so already, first install `migrate` with the instructions in the [README section](https://github.com/mthomas-ketchbrook/migrate#Installation).
+
+First, load the package & the mock dataset (as a data frame) using `library()`
+
+```{r, eval = FALSE}
+library(migrate)
+data("mock_credit")
+```
+
+We can get a look at the data using `dplyr::glimpse()`
+
+```{r glimpse, eval = FALSE}
+glimpse(mock_credit)
+```
+
+Note that an important feature of the dataset is that there are exactly two (2) unique values in the `date` column variable
+
+```{r dates, eval = FALSE}
+unique(mock_credit$date)
+```
+
+To summarize the migration within the data, use the `migrate()` function
+
+```{r migrate, eval = FALSE}
+migrated_df <- migrate(
+  data = mock_credit, 
+  date = date, 
+  rating = risk_rating, 
+  metric = principal_balance
+)
+
+head(migrated_df)
+```
+
+To create the state migration matrix, use the `build_matrix()` function
+```{r matrix, eval = FALSE} 
+build_matrix(migrated_df)
+```
+
+Or, to do it all in one shot, use the `%>%`
+```{r pipe, eval = FALSE} 
+mock_credit %>% 
+  migrate(
+    data = mock_credit, 
+    date = date, 
+    rating = risk_rating, 
+    metric = principal_balance
+  ) %>% 
+  build_matrix()
+```
