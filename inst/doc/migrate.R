@@ -21,7 +21,8 @@ unique(mock_credit$date)
 migrated_df <- migrate(
   data = mock_credit, 
   date = date, 
-  rating = risk_rating, 
+  state = risk_rating, 
+  id = customer_id, 
   metric = principal_balance
 )
 
@@ -34,7 +35,8 @@ build_matrix(migrated_df)
 #  mock_credit %>%
 #    migrate(
 #      date = date,
-#      rating = risk_rating,
+#      state = risk_rating,
+#      id = customer_id,
 #      metric = principal_balance
 #    ) %>%
 #    build_matrix()
