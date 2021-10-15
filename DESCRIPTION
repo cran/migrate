@@ -1,7 +1,7 @@
 Package: migrate
 Type: Package
 Title: Create Credit State Migration (Transition) Matrices
-Version: 0.3.0
+Version: 0.4.0
 Authors@R: 
     c(person(given = "Michael", 
              family = "Thomas", 
@@ -25,15 +25,15 @@ Encoding: UTF-8
 LazyData: true
 Suggests: testthat (>= 2.1.0), knitr, rmarkdown
 Depends: R (>= 3.1)
-Imports: dplyr (>= 1.0.2), tidyr (>= 1.1.0), crayon (>= 1.3.4), stringr
-        (>= 1.4.0), tibble (>= 3.0.1), rlang, utils, magrittr
+Imports: dplyr (>= 1.0.7), tidyr (>= 1.1.0), tibble (>= 3.0.1), rlang,
+        utils, magrittr
 VignetteBuilder: knitr
 Language: en-US
 RoxygenNote: 7.1.1
 NeedsCompilation: no
-Packaged: 2020-12-07 16:39:06 UTC; 18602
+Packaged: 2021-10-13 20:37:49 UTC; 18602
 Author: Michael Thomas [aut, cre],
   Brad Lindblad [ctb]
 Maintainer: Michael Thomas <mthomas@ketchbrookanalytics.com>
 Repository: CRAN
-Date/Publication: 2020-12-07 17:10:02 UTC
+Date/Publication: 2021-10-15 18:10:02 UTC
