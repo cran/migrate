@@ -60,7 +60,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -378,7 +378,7 @@ environment like so:</p>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">head</span>(mock_credit[<span class="fu">order</span>(mock_credit<span class="sc">$</span>customer_id), ])   <span class="co"># sort by &#39;customer_id&#39;</span></span></code></pre></div>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th align="left">customer_id</th>
 <th align="left">date</th>
 <th align="left">risk_rating</th>
@@ -386,37 +386,37 @@ environment like so:</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td align="left">Customer_1001</td>
 <td align="left">2020-06-30</td>
 <td align="left">A</td>
 <td align="right">915000</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left">Customer_1001</td>
 <td align="left">2020-09-30</td>
 <td align="left">A</td>
 <td align="right">1328000</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left">Customer_1002</td>
 <td align="left">2020-06-30</td>
 <td align="left">AAA</td>
 <td align="right">979000</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left">Customer_1002</td>
 <td align="left">2020-09-30</td>
 <td align="left">AAA</td>
 <td align="right">354000</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left">Customer_1003</td>
 <td align="left">2020-06-30</td>
 <td align="left">BBB</td>
 <td align="right">1400000</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left">Customer_1003</td>
 <td align="left">2020-09-30</td>
 <td align="left">BBB</td>
@@ -439,54 +439,54 @@ the function will throw an error.</p>
 <span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  <span class="at">time =</span> date,</span>
 <span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>  <span class="at">state =</span> risk_rating,</span>
 <span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>)</span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt; ℹ Migrating from 2020-06-30 to 2020-09-30</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">head</span>(migrated_df)</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 3</span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#&gt;   risk_rating_start risk_rating_end   prop</span></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#&gt;   &lt;ord&gt;             &lt;ord&gt;            &lt;dbl&gt;</span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#&gt; 1 AAA               AAA             0.774 </span></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co">#&gt; 2 AAA               AA              0.194 </span></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co">#&gt; 3 AAA               A               0.0323</span></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="co">#&gt; 4 AAA               BBB             0     </span></span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="co">#&gt; 5 AAA               BB              0     </span></span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co">#&gt; 6 AAA               B               0</span></span></code></pre></div>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt; ℹ Migrating from 2020-06-30 to 2020-09-30</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="fu">head</span>(migrated_df)</span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 3</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt;   risk_rating_start risk_rating_end   prop</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt;   &lt;ord&gt;             &lt;ord&gt;            &lt;dbl&gt;</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt; 1 AAA               AAA             0.774 </span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt; 2 AAA               AA              0.194 </span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co">#&gt; 3 AAA               A               0.0323</span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co">#&gt; 4 AAA               BBB             0     </span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="co">#&gt; 5 AAA               BB              0     </span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="co">#&gt; 6 AAA               B               0</span></span></code></pre></div>
 <p>To create the state transition matrix, use the
 <code>build_matrix()</code> function</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">build_matrix</span>(migrated_df)</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt; ℹ Using `risk_rating_start` as the &#39;state_start&#39; column variable</span></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt; ℹ Using `risk_rating_end` as the &#39;state_end&#39; column variable</span></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">#&gt; ℹ Using `prop` as the &#39;metric&#39; column variable</span></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt;             AAA         AA          A        BBB         BB          B        CCC</span></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co">#&gt; AAA 0.774193548 0.19354839 0.03225806 0.00000000 0.00000000 0.00000000 0.00000000</span></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co">#&gt; AA  0.101123596 0.66292135 0.15730337 0.07865169 0.00000000 0.00000000 0.00000000</span></span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co">#&gt; A   0.008333333 0.06666667 0.72500000 0.16666667 0.03333333 0.00000000 0.00000000</span></span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="co">#&gt; BBB 0.000000000 0.00000000 0.11363636 0.68181818 0.14772727 0.05681818 0.00000000</span></span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="co">#&gt; BB  0.000000000 0.00000000 0.00000000 0.11392405 0.63291139 0.16455696 0.08860759</span></span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="co">#&gt; B   0.000000000 0.00000000 0.00000000 0.01388889 0.09722222 0.62500000 0.26388889</span></span>
-<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="co">#&gt; CCC 0.000000000 0.00000000 0.00000000 0.00000000 0.00000000 0.14285714 0.85714286</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">build_matrix</span>(migrated_df)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co">#&gt; ℹ Using `risk_rating_start` as the &#39;state_start&#39; column variable</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#&gt; ℹ Using `risk_rating_end` as the &#39;state_end&#39; column variable</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#&gt; ℹ Using `prop` as the &#39;metric&#39; column variable</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#&gt;             AAA         AA          A        BBB         BB          B        CCC</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co">#&gt; AAA 0.774193548 0.19354839 0.03225806 0.00000000 0.00000000 0.00000000 0.00000000</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co">#&gt; AA  0.101123596 0.66292135 0.15730337 0.07865169 0.00000000 0.00000000 0.00000000</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="co">#&gt; A   0.008333333 0.06666667 0.72500000 0.16666667 0.03333333 0.00000000 0.00000000</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="co">#&gt; BBB 0.000000000 0.00000000 0.11363636 0.68181818 0.14772727 0.05681818 0.00000000</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co">#&gt; BB  0.000000000 0.00000000 0.00000000 0.11392405 0.63291139 0.16455696 0.08860759</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="co">#&gt; B   0.000000000 0.00000000 0.00000000 0.01388889 0.09722222 0.62500000 0.26388889</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="co">#&gt; CCC 0.000000000 0.00000000 0.00000000 0.00000000 0.00000000 0.14285714 0.85714286</span></span></code></pre></div>
 <p>Or, to do it all in one shot, use the <code>|&gt;</code></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>mock_credit <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  <span class="fu">migrate</span>(</span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>    <span class="at">id =</span> customer_id,</span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>    <span class="at">time =</span> date,</span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>    <span class="at">state =</span> risk_rating,</span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>    <span class="at">metric =</span> principal_balance,</span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>    <span class="at">percent =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>    <span class="at">verbose =</span> <span class="cn">FALSE</span></span>
-<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>  <span class="fu">build_matrix</span>(</span>
-<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>    <span class="at">state_start =</span> risk_rating_start,</span>
-<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a>    <span class="at">state_end =</span> risk_rating_end,</span>
-<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a>    <span class="at">metric =</span> principal_balance</span>
-<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a>  )</span>
-<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="co">#&gt;          AAA       AA        A      BBB       BB        B      CCC</span></span>
-<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a><span class="co">#&gt; AAA 29042000  6575000    20000        0        0        0        0</span></span>
-<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a><span class="co">#&gt; AA   6445000 58095000 13045000 14467000        0        0        0</span></span>
-<span id="cb7-18"><a href="#cb7-18" tabindex="-1"></a><span class="co">#&gt; A     804000  7898000 85330000 21015000  5829000        0        0</span></span>
-<span id="cb7-19"><a href="#cb7-19" tabindex="-1"></a><span class="co">#&gt; BBB        0        0 12461000 65315000 13911000  8140000        0</span></span>
-<span id="cb7-20"><a href="#cb7-20" tabindex="-1"></a><span class="co">#&gt; BB         0        0        0 11374000 45986000 14057000  5723000</span></span>
-<span id="cb7-21"><a href="#cb7-21" tabindex="-1"></a><span class="co">#&gt; B          0        0        0   413000  6700000 47402000 17132000</span></span>
-<span id="cb7-22"><a href="#cb7-22" tabindex="-1"></a><span class="co">#&gt; CCC        0        0        0        0        0  2094000 14843000</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>mock_credit <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  <span class="fu">migrate</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>    <span class="at">id =</span> customer_id,</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>    <span class="at">time =</span> date,</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>    <span class="at">state =</span> risk_rating,</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>    <span class="at">metric =</span> principal_balance,</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>    <span class="at">percent =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>    <span class="at">verbose =</span> <span class="cn">FALSE</span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>  <span class="fu">build_matrix</span>(</span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>    <span class="at">state_start =</span> risk_rating_start,</span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>    <span class="at">state_end =</span> risk_rating_end,</span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>    <span class="at">metric =</span> principal_balance</span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a>  )</span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="co">#&gt;          AAA       AA        A      BBB       BB        B      CCC</span></span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a><span class="co">#&gt; AAA 29042000  6575000    20000        0        0        0        0</span></span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a><span class="co">#&gt; AA   6445000 58095000 13045000 14467000        0        0        0</span></span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a><span class="co">#&gt; A     804000  7898000 85330000 21015000  5829000        0        0</span></span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a><span class="co">#&gt; BBB        0        0 12461000 65315000 13911000  8140000        0</span></span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a><span class="co">#&gt; BB         0        0        0 11374000 45986000 14057000  5723000</span></span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a><span class="co">#&gt; B          0        0        0   413000  6700000 47402000 17132000</span></span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a><span class="co">#&gt; CCC        0        0        0        0        0  2094000 14843000</span></span></code></pre></div>
 </div>
 <div id="handle-ids-with-observations-at-a-single-timepoint" class="section level2">
 <h2>Handle IDs with observations at a single timepoint</h2>
@@ -497,32 +497,32 @@ with the following characteristics:</p>
 <li>20 customers have a value only at the first timepoint</li>
 <li>10 customers have a value only at the second timepoint</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>mock_credit_with_missing <span class="ot">&lt;-</span> mock_credit <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>  <span class="co"># Remove the value at the first timepoint for 10 customers</span></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">slice</span>(<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>  <span class="co"># Remove the value at the last timepoint for 20 customers</span></span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">slice</span>(<span class="sc">-</span>((dplyr<span class="sc">::</span><span class="fu">n</span>() <span class="sc">-</span> <span class="dv">19</span>)<span class="sc">:</span>dplyr<span class="sc">::</span><span class="fu">n</span>()))</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>mock_credit_with_missing <span class="ot">&lt;-</span> mock_credit <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  <span class="co"># Remove the value at the first timepoint for 10 customers</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">slice</span>(<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  <span class="co"># Remove the value at the last timepoint for 20 customers</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">slice</span>(<span class="sc">-</span>((dplyr<span class="sc">::</span><span class="fu">n</span>() <span class="sc">-</span> <span class="dv">19</span>)<span class="sc">:</span>dplyr<span class="sc">::</span><span class="fu">n</span>()))</span></code></pre></div>
 <p>Check that the new dataframe has information about 500 customers:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co"># Number of unique customer_id values in mock_credit_with_missing</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">n_distinct</span>(mock_credit_with_missing<span class="sc">$</span>customer_id)</span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="co">#&gt; [1] 500</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co"># Number of unique customer_id values in mock_credit_with_missing</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">n_distinct</span>(mock_credit_with_missing<span class="sc">$</span>customer_id)</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="co">#&gt; [1] 500</span></span></code></pre></div>
 <p>By default, <code>migrate()</code> drops observations that belong to
 IDs found at a single timepoint. <code>migrate()</code> informs such
 behavior through a warning:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>migrated_data_without_fill_state <span class="ot">&lt;-</span> mock_credit_with_missing <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>  <span class="fu">migrate</span>(</span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>    <span class="at">id =</span> customer_id,</span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>    <span class="at">time =</span> date,</span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>    <span class="at">state =</span> risk_rating,</span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>    <span class="at">percent =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>    <span class="at">verbose =</span> <span class="cn">FALSE</span></span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>  )</span>
-<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="co">#&gt; Warning: ! Removed 30 observations due to missingness or IDs only existing at one `time` value</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>migrated_data_without_fill_state <span class="ot">&lt;-</span> mock_credit_with_missing <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>  <span class="fu">migrate</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>    <span class="at">id =</span> customer_id,</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>    <span class="at">time =</span> date,</span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>    <span class="at">state =</span> risk_rating,</span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>    <span class="at">percent =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>    <span class="at">verbose =</span> <span class="cn">FALSE</span></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>  )</span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="co">#&gt; Warning: ! Removed 30 observations due to missingness or IDs only existing at one `time` value</span></span></code></pre></div>
 <p>Notice that only 470 customers have been migrated:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>migrated_data_without_fill_state <span class="sc">|&gt;</span></span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">pull</span>(count) <span class="sc">|&gt;</span></span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>  <span class="fu">sum</span>()</span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="co">#&gt; [1] 470</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>migrated_data_without_fill_state <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">pull</span>(count) <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  <span class="fu">sum</span>()</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="co">#&gt; [1] 470</span></span></code></pre></div>
 <p>You can use <code>migrate()</code>’s <code>fill_state</code> argument
 to ensure that no information is lost during the migration process. When
 a <em>filler state</em> value (e.g., a character string such as “No
@@ -531,52 +531,52 @@ single timepoint are not removed but rather migrated from or to this
 <em>filler state</em>.</p>
 <p>When <code>verbose = TRUE</code> a message will provide additional
 information about the IDs with missing timepoints:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>migrated_data_with_fill_state <span class="ot">&lt;-</span> mock_credit_with_missing <span class="sc">|&gt;</span></span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>  <span class="fu">migrate</span>(</span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>    <span class="at">id =</span> customer_id,</span>
-<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>    <span class="at">time =</span> date,</span>
-<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>    <span class="at">state =</span> risk_rating,</span>
-<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>    <span class="at">fill_state =</span> <span class="st">&quot;No Rating&quot;</span>,</span>
-<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>    <span class="at">percent =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a>    <span class="at">verbose =</span> <span class="cn">TRUE</span></span>
-<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a>  )</span>
-<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a><span class="co">#&gt; ℹ Migrating from 2020-06-30 to 2020-09-30</span></span>
-<span id="cb12-11"><a href="#cb12-11" tabindex="-1"></a><span class="co">#&gt; ℹ 30 IDs have a missing timepoint:</span></span>
-<span id="cb12-12"><a href="#cb12-12" tabindex="-1"></a><span class="co">#&gt;   • Migrating 20 IDs with missing end timepoint to new class &#39;No Rating&#39;</span></span>
-<span id="cb12-13"><a href="#cb12-13" tabindex="-1"></a><span class="co">#&gt;   • Migrating 10 IDs with missing start timepoint from new class &#39;No Rating&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>migrated_data_with_fill_state <span class="ot">&lt;-</span> mock_credit_with_missing <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>  <span class="fu">migrate</span>(</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>    <span class="at">id =</span> customer_id,</span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>    <span class="at">time =</span> date,</span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>    <span class="at">state =</span> risk_rating,</span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>    <span class="at">fill_state =</span> <span class="st">&quot;No Rating&quot;</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>    <span class="at">percent =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a>    <span class="at">verbose =</span> <span class="cn">TRUE</span></span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a>  )</span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a><span class="co">#&gt; ℹ Migrating from 2020-06-30 to 2020-09-30</span></span>
+<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a><span class="co">#&gt; ℹ 30 IDs have a missing timepoint:</span></span>
+<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a><span class="co">#&gt;   • Migrating 20 IDs with missing end timepoint to new class &#39;No Rating&#39;</span></span>
+<span id="cb11-13"><a href="#cb11-13" tabindex="-1"></a><span class="co">#&gt;   • Migrating 10 IDs with missing start timepoint from new class &#39;No Rating&#39;</span></span></code></pre></div>
 <p>Check that 500 customers were migrated:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>migrated_data_with_fill_state <span class="sc">|&gt;</span></span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">pull</span>(count) <span class="sc">|&gt;</span></span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>  <span class="fu">sum</span>()</span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="co">#&gt; [1] 500</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>migrated_data_with_fill_state <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">pull</span>(count) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>  <span class="fu">sum</span>()</span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="co">#&gt; [1] 500</span></span></code></pre></div>
 <p>So far we have been using <code>count</code> as the metric to easily
 determine the amount of customers that migrated in each scenario. The
 following code provides an example migration that leverages
 <code>principal_balance</code> as the metric:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>mock_credit_with_missing <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>  <span class="fu">migrate</span>(</span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>    <span class="at">id =</span> customer_id,</span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>    <span class="at">time =</span> date,</span>
-<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>    <span class="at">state =</span> risk_rating,</span>
-<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>    <span class="at">metric =</span> principal_balance,</span>
-<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>    <span class="at">fill_state =</span> <span class="st">&quot;No Rating&quot;</span>,</span>
-<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a>    <span class="at">percent =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a>    <span class="at">verbose =</span> <span class="cn">FALSE</span></span>
-<span id="cb14-10"><a href="#cb14-10" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb14-11"><a href="#cb14-11" tabindex="-1"></a>  <span class="fu">build_matrix</span>(</span>
-<span id="cb14-12"><a href="#cb14-12" tabindex="-1"></a>    <span class="at">state_start =</span> risk_rating_start,</span>
-<span id="cb14-13"><a href="#cb14-13" tabindex="-1"></a>    <span class="at">state_end =</span> risk_rating_end,</span>
-<span id="cb14-14"><a href="#cb14-14" tabindex="-1"></a>    <span class="at">metric =</span> principal_balance</span>
-<span id="cb14-15"><a href="#cb14-15" tabindex="-1"></a>  )</span>
-<span id="cb14-16"><a href="#cb14-16" tabindex="-1"></a><span class="co">#&gt;                AAA       AA        A      BBB       BB        B      CCC No Rating</span></span>
-<span id="cb14-17"><a href="#cb14-17" tabindex="-1"></a><span class="co">#&gt; AAA       27403000  4301000    20000        0        0        0        0   2274000</span></span>
-<span id="cb14-18"><a href="#cb14-18" tabindex="-1"></a><span class="co">#&gt; AA         6445000 56333000 11642000 14467000        0        0        0   1762000</span></span>
-<span id="cb14-19"><a href="#cb14-19" tabindex="-1"></a><span class="co">#&gt; A           804000  7682000 82044000 19823000  5829000        0        0   3779000</span></span>
-<span id="cb14-20"><a href="#cb14-20" tabindex="-1"></a><span class="co">#&gt; BBB              0        0 12461000 62071000 11480000  8140000        0   4275000</span></span>
-<span id="cb14-21"><a href="#cb14-21" tabindex="-1"></a><span class="co">#&gt; BB               0        0        0 10930000 44487000 11838000  5723000   1995000</span></span>
-<span id="cb14-22"><a href="#cb14-22" tabindex="-1"></a><span class="co">#&gt; B                0        0        0        0  6700000 46412000 14977000   3210000</span></span>
-<span id="cb14-23"><a href="#cb14-23" tabindex="-1"></a><span class="co">#&gt; CCC              0        0        0        0        0  2094000 14447000         0</span></span>
-<span id="cb14-24"><a href="#cb14-24" tabindex="-1"></a><span class="co">#&gt; No Rating        0        0        0        0        0        0        0         0</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>mock_credit_with_missing <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>  <span class="fu">migrate</span>(</span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>    <span class="at">id =</span> customer_id,</span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>    <span class="at">time =</span> date,</span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>    <span class="at">state =</span> risk_rating,</span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>    <span class="at">metric =</span> principal_balance,</span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>    <span class="at">fill_state =</span> <span class="st">&quot;No Rating&quot;</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a>    <span class="at">percent =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a>    <span class="at">verbose =</span> <span class="cn">FALSE</span></span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a>  <span class="fu">build_matrix</span>(</span>
+<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a>    <span class="at">state_start =</span> risk_rating_start,</span>
+<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a>    <span class="at">state_end =</span> risk_rating_end,</span>
+<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a>    <span class="at">metric =</span> principal_balance</span>
+<span id="cb13-15"><a href="#cb13-15" tabindex="-1"></a>  )</span>
+<span id="cb13-16"><a href="#cb13-16" tabindex="-1"></a><span class="co">#&gt;                AAA       AA        A      BBB       BB        B      CCC No Rating</span></span>
+<span id="cb13-17"><a href="#cb13-17" tabindex="-1"></a><span class="co">#&gt; AAA       27403000  4301000    20000        0        0        0        0   2274000</span></span>
+<span id="cb13-18"><a href="#cb13-18" tabindex="-1"></a><span class="co">#&gt; AA         6445000 56333000 11642000 14467000        0        0        0   1762000</span></span>
+<span id="cb13-19"><a href="#cb13-19" tabindex="-1"></a><span class="co">#&gt; A           804000  7682000 82044000 19823000  5829000        0        0   3779000</span></span>
+<span id="cb13-20"><a href="#cb13-20" tabindex="-1"></a><span class="co">#&gt; BBB              0        0 12461000 62071000 11480000  8140000        0   4275000</span></span>
+<span id="cb13-21"><a href="#cb13-21" tabindex="-1"></a><span class="co">#&gt; BB               0        0        0 10930000 44487000 11838000  5723000   1995000</span></span>
+<span id="cb13-22"><a href="#cb13-22" tabindex="-1"></a><span class="co">#&gt; B                0        0        0        0  6700000 46412000 14977000   3210000</span></span>
+<span id="cb13-23"><a href="#cb13-23" tabindex="-1"></a><span class="co">#&gt; CCC              0        0        0        0        0  2094000 14447000         0</span></span>
+<span id="cb13-24"><a href="#cb13-24" tabindex="-1"></a><span class="co">#&gt; No Rating        0        0        0        0        0        0        0         0</span></span></code></pre></div>
 </div>
 
 

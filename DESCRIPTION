@@ -1,7 +1,7 @@
 Package: migrate
 Type: Package
 Title: Create Credit State Migration (Transition) Matrices
-Version: 0.5.0
+Version: 0.5.1
 Authors@R: 
     c(person(given = "Michael",
              family = "Thomas",
@@ -14,7 +14,11 @@ Authors@R:
       person(given = "Ivan",
              family = "Millanes",
              role = "ctb",
-             email = "imillanes@ketchbrookanalytics.com"))
+             email = "imillanes@ketchbrookanalytics.com"),
+      person(given = "Dylan",
+             family = "Hughes",
+             role = "ctb",
+             email = "dhughes@ketchbrookanalytics.com"))
 Description: Tools to help convert credit risk data at two timepoints
     into traditional credit state migration (aka, "transition") matrices.
     At a higher level, 'migrate' is intended to help an analyst understand
@@ -34,12 +38,13 @@ Imports: dplyr (>= 1.0.7), tidyr (>= 1.1.0), tibble (>= 3.0.1), rlang,
         utils, cli, glue
 VignetteBuilder: knitr
 Language: en-US
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.3
 NeedsCompilation: no
-Packaged: 2024-07-10 10:52:09 UTC; root
+Packaged: 2026-01-11 05:04:10 UTC; root
 Author: Michael Thomas [aut, cre],
   Brad Lindblad [ctb],
-  Ivan Millanes [ctb]
+  Ivan Millanes [ctb],
+  Dylan Hughes [ctb]
 Maintainer: Michael Thomas <mthomas@ketchbrookanalytics.com>
 Repository: CRAN
-Date/Publication: 2024-07-10 13:20:02 UTC
+Date/Publication: 2026-01-11 05:20:02 UTC
